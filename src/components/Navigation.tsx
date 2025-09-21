@@ -174,10 +174,6 @@ export function Navigation() {
                       />
                     )}
 
-                    {/* Hover indicator */}
-                    <span className={`absolute -bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] transition-all duration-300 rounded-full ${
-                      isActive ? 'w-6 -translate-x-1/2' : 'w-0 group-hover:w-6 group-hover:-translate-x-1/2'
-                    }`} />
                   </motion.button>
                 );
               })}
@@ -270,11 +266,8 @@ export function Navigation() {
                           }`}>
                             {IconComponent && <IconComponent className="w-4 h-4 lg:w-5 lg:h-5" />}
                           </div>
-                          <span className="flex-1 text-left relative">
+                          <span className="flex-1 text-left">
                             {item.name}
-                            <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] transition-all duration-300 rounded-full ${
-                              isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                            }`} />
                           </span>
                           {isActive && (
                             <motion.div

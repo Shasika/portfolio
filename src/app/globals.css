@@ -529,16 +529,27 @@ nav {
   border-color: rgb(var(--border)) !important;
 }
 
-/* Ensure no default borders on interactive elements */
-button:focus,
-a:focus {
+/* Focus styles only for form elements and specific interactive elements */
+input:focus,
+textarea:focus,
+select:focus,
+button.btn-primary:focus,
+button.btn-secondary:focus {
   outline: 2px solid rgb(var(--primary)) !important;
   outline-offset: 2px;
   border-color: transparent !important;
 }
 
-/* Exception for theme toggle button - remove focus outline */
-button[aria-label="Toggle theme"]:focus {
+/* Remove focus outline for navigation and UI buttons */
+header button:focus,
+nav button:focus,
+.nav-button:focus,
+button[aria-label="Toggle theme"]:focus,
+button[aria-label="Toggle mobile menu"]:focus,
+button[aria-label="Close menu"]:focus,
+/* Target all buttons and links in navigation that don't have btn- classes */
+button:focus:not(.btn-primary):not(.btn-secondary):not(.btn-ghost),
+a:focus:not(.btn-primary):not(.btn-secondary) {
   outline: none !important;
   outline-offset: 0 !important;
 }

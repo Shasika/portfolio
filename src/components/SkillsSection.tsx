@@ -20,6 +20,9 @@ export function SkillsSection() {
     { title: 'Soft Skills', skills: skills?.soft || [] },
   ];
 
+  const SKILLS_TO_SHOW_INITIALLY = 4; // Show 4 skills per category initially
+  const hasHiddenSkills = skillCategories.some(category => category.skills.length > SKILLS_TO_SHOW_INITIALLY);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -85,8 +88,7 @@ export function SkillsSection() {
                   variants={containerVariants}
                 >
                   {category.skills.map((skill, skillIndex) => {
-                    const totalIndex = categoryIndex * 10 + skillIndex;
-                    const shouldShow = showMore || totalIndex < 12;
+                    const shouldShow = showMore || skillIndex < SKILLS_TO_SHOW_INITIALLY;
 
                     if (!shouldShow) return null;
 
@@ -112,13 +114,13 @@ export function SkillsSection() {
           </div>
 
           {/* Show More/Less Button */}
-          {!showMore && (
+          {hasHiddenSkills && (
             <motion.div variants={itemVariants} className="text-center pt-6 lg:pt-8">
               <button
-                onClick={() => setShowMore(true)}
+                onClick={() => setShowMore(!showMore)}
                 className="btn-ghost group"
               >
-                <span>Show All Skills</span>
+                <span>{showMore ? 'Show Less Skills' : 'Show All Skills'}</span>
                 <motion.div
                   className="w-4 h-4 lg:w-5 lg:h-5 ml-2"
                   animate={{ rotate: showMore ? 180 : 0 }}
