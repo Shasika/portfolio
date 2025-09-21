@@ -50,38 +50,38 @@ export function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-20 px-6 bg-[rgb(var(--surface))]">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="section bg-[rgb(var(--surface))]">
+      <div className="container">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-16"
+          className="space-y-12 lg:space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">Skills & Expertise</h2>
-            <div className="w-24 h-1 bg-[rgb(var(--primary))] mx-auto rounded-full" />
-            <p className="text-lg text-[rgb(var(--fg))]/70 max-w-2xl mx-auto">
+          <motion.div variants={itemVariants} className="section-header">
+            <h2 className="section-title">Skills & Expertise</h2>
+            <div className="divider" />
+            <p className="section-description">
               Technologies and skills I use to bring ideas to life
             </p>
           </motion.div>
 
           {/* Skills Grid */}
-          <div className="space-y-12">
+          <div className="space-y-8 lg:space-y-12">
             {skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.title}
                 variants={itemVariants}
-                className="space-y-6"
+                className="space-y-4 lg:space-y-6"
               >
-                <h3 className="text-2xl font-semibold text-[rgb(var(--primary))]">
+                <h3 className="text-xl lg:text-2xl font-semibold text-[rgb(var(--primary))]">
                   {category.title}
                 </h3>
 
                 <motion.div
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap gap-2 lg:gap-3"
                   variants={containerVariants}
                 >
                   {category.skills.map((skill, skillIndex) => {
@@ -94,7 +94,7 @@ export function SkillsSection() {
                       <motion.div
                         key={skill}
                         variants={chipVariants}
-                        className="chip group cursor-default"
+                        className="chip group cursor-default text-sm lg:text-base"
                         whileHover={{
                           scale: 1.05,
                           boxShadow: `0 4px 20px rgb(var(--primary) / 0.3)`
@@ -113,14 +113,14 @@ export function SkillsSection() {
 
           {/* Show More/Less Button */}
           {!showMore && (
-            <motion.div variants={itemVariants} className="text-center pt-8">
+            <motion.div variants={itemVariants} className="text-center pt-6 lg:pt-8">
               <button
                 onClick={() => setShowMore(true)}
                 className="btn-ghost group"
               >
                 <span>Show All Skills</span>
                 <motion.div
-                  className="w-5 h-5 ml-2"
+                  className="w-4 h-4 lg:w-5 lg:h-5 ml-2"
                   animate={{ rotate: showMore ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -134,9 +134,9 @@ export function SkillsSection() {
 
           {/* Skills Highlight */}
           <motion.div variants={itemVariants} className="card">
-            <div className="text-center space-y-4">
-              <h3 className="text-xl font-semibold">Core Expertise</h3>
-              <p className="text-[rgb(var(--fg))]/70">
+            <div className="text-center space-y-3 lg:space-y-4">
+              <h3 className="text-lg lg:text-xl font-semibold">Core Expertise</h3>
+              <p className="text-sm lg:text-base text-[rgb(var(--fg))]/70 leading-relaxed">
                 Specialized in building full-stack web applications with <span className="text-[rgb(var(--primary))] font-medium">Laravel</span> and <span className="text-[rgb(var(--primary))] font-medium">Vue.js</span>,
                 focusing on clean architecture, performance optimization, and maintainable code.
               </p>

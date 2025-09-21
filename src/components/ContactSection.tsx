@@ -64,53 +64,53 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="section">
+      <div className="container">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-16"
+          className="space-y-12 lg:space-y-16"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">Get In Touch</h2>
-            <div className="w-24 h-1 bg-[rgb(var(--primary))] mx-auto rounded-full" />
-            <p className="text-lg text-[rgb(var(--fg))]/70 max-w-2xl mx-auto">
+          <motion.div variants={itemVariants} className="section-header">
+            <h2 className="section-title">Get In Touch</h2>
+            <div className="divider" />
+            <p className="section-description">
               Ready to work together? Let&apos;s discuss your next project and bring your ideas to life.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
             {/* Contact Info */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <h3 className="text-2xl font-semibold">Let&apos;s Connect</h3>
+            <motion.div variants={itemVariants} className="space-y-6 lg:space-y-8">
+              <h3 className="text-xl lg:text-2xl font-semibold">Let&apos;s Connect</h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 lg:space-y-6">
                 <a
                   href={`mailto:${personal?.email}`}
-                  className="card flex items-center space-x-4 group cursor-pointer"
+                  className="card flex items-center space-x-3 lg:space-x-4 group cursor-pointer"
                 >
-                  <div className="w-12 h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
-                    <Mail className="w-6 h-6 text-[rgb(var(--primary))]" />
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
+                    <Mail className="w-5 h-5 lg:w-6 lg:h-6 text-[rgb(var(--primary))]" />
                   </div>
-                  <div>
-                    <div className="font-medium">Email</div>
-                    <div className="text-[rgb(var(--fg))]/70">{personal?.email}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-sm lg:text-base">Email</div>
+                    <div className="text-[rgb(var(--fg))]/70 text-sm lg:text-base truncate">{personal?.email}</div>
                   </div>
                 </a>
 
                 <a
                   href={`tel:${personal?.phone}`}
-                  className="card flex items-center space-x-4 group cursor-pointer"
+                  className="card flex items-center space-x-3 lg:space-x-4 group cursor-pointer"
                 >
-                  <div className="w-12 h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
-                    <Phone className="w-6 h-6 text-[rgb(var(--primary))]" />
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
+                    <Phone className="w-5 h-5 lg:w-6 lg:h-6 text-[rgb(var(--primary))]" />
                   </div>
-                  <div>
-                    <div className="font-medium">Phone</div>
-                    <div className="text-[rgb(var(--fg))]/70">{personal?.phone}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-sm lg:text-base">Phone</div>
+                    <div className="text-[rgb(var(--fg))]/70 text-sm lg:text-base truncate">{personal?.phone}</div>
                   </div>
                 </a>
 
@@ -118,21 +118,21 @@ export function ContactSection() {
                   href={personal?.linkedin || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card flex items-center space-x-4 group cursor-pointer"
+                  className="card flex items-center space-x-3 lg:space-x-4 group cursor-pointer"
                 >
-                  <div className="w-12 h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
-                    <Linkedin className="w-6 h-6 text-[rgb(var(--primary))]" />
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[rgb(var(--primary))]/10 rounded-lg flex items-center justify-center group-hover:bg-[rgb(var(--primary))]/20 transition-colors duration-200">
+                    <Linkedin className="w-5 h-5 lg:w-6 lg:h-6 text-[rgb(var(--primary))]" />
                   </div>
-                  <div>
-                    <div className="font-medium">LinkedIn</div>
-                    <div className="text-[rgb(var(--fg))]/70">Connect with me</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium text-sm lg:text-base">LinkedIn</div>
+                    <div className="text-[rgb(var(--fg))]/70 text-sm lg:text-base">Connect with me</div>
                   </div>
                 </a>
               </div>
 
               <div className="card">
-                <h4 className="font-semibold mb-4">Available for</h4>
-                <div className="space-y-2 text-[rgb(var(--fg))]/80">
+                <h4 className="font-semibold mb-3 lg:mb-4 text-sm lg:text-base">Available for</h4>
+                <div className="space-y-2 text-sm lg:text-base text-[rgb(var(--fg))]/80">
                   <div className="flex items-center space-x-2">
                     <div className="w-1.5 h-1.5 bg-[rgb(var(--primary))] rounded-full" />
                     <span>Full-time opportunities</span>
@@ -151,7 +151,7 @@ export function ContactSection() {
 
             {/* Contact Form */}
             <motion.div variants={itemVariants} className="space-y-6">
-              <h3 className="text-2xl font-semibold">Send a Message</h3>
+              <h3 className="text-xl lg:text-2xl font-semibold">Send a Message</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-4">

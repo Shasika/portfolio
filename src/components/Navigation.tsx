@@ -76,7 +76,7 @@ export function Navigation() {
         className="fixed top-0 left-0 right-0 z-50 bg-[rgb(var(--bg))]/85 backdrop-blur-md"
       >
         <nav className="container">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
             <div className="animate-pulse w-32 h-8 bg-[rgb(var(--surface))] rounded-md"></div>
             <div className="animate-pulse w-8 h-8 bg-[rgb(var(--surface))] rounded-md"></div>
           </div>
@@ -105,7 +105,7 @@ export function Navigation() {
           transition={{ duration: 0.1 }}
         />
         <nav className="container">
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.a
               href="#"
@@ -226,11 +226,11 @@ export function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 max-w-[80vw] glass shadow-2xl z-50 lg:hidden"
+              className="fixed top-0 right-0 h-full w-72 max-w-[85vw] glass shadow-2xl z-50 lg:hidden"
             >
               <div className="flex flex-col h-full">
                 {/* Header */}
-                <div className="flex items-center justify-between p-6 border-b border-[rgb(var(--border))]">
+                <div className="flex items-center justify-between p-4 lg:p-6 border-b border-[rgb(var(--border))]">
                   <span className="font-bold text-lg gradient-text">Menu</span>
                   <button
                     onClick={closeMobileMenu}
@@ -242,8 +242,8 @@ export function Navigation() {
                 </div>
 
                 {/* Navigation Links */}
-                <div className="flex-1 px-6 py-8">
-                  <nav className="space-y-3">
+                <div className="flex-1 px-4 py-6 lg:px-6 lg:py-8">
+                  <nav className="space-y-2 lg:space-y-3">
                     {navigation?.map((item, index) => {
                       const IconComponent = navigationIcons[item.name as keyof typeof navigationIcons];
                       const isActive = activeSection === item.name.toLowerCase();
@@ -257,18 +257,18 @@ export function Navigation() {
                           transition={{ delay: index * 0.1 }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className={`w-full flex items-center space-x-4 px-4 py-4 text-lg font-medium transition-all duration-300 rounded-xl group ${
+                          className={`w-full flex items-center space-x-3 px-3 py-3 text-base lg:text-lg font-medium transition-all duration-300 rounded-xl group ${
                             isActive
                               ? 'bg-[rgb(var(--primary))]/15 text-[rgb(var(--primary))] border border-[rgb(var(--primary))]/30 shadow-sm'
                               : 'text-[rgb(var(--fg))]/80 hover:text-[rgb(var(--primary))] hover:bg-[rgb(var(--surface))]/80'
                           }`}
                         >
-                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                          <div className={`w-8 h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
                             isActive
                               ? 'bg-[rgb(var(--primary))]/20 text-[rgb(var(--primary))]'
                               : 'bg-[rgb(var(--surface))]/50 group-hover:bg-[rgb(var(--primary))]/10 group-hover:text-[rgb(var(--primary))]'
                           }`}>
-                            {IconComponent && <IconComponent className="w-5 h-5" />}
+                            {IconComponent && <IconComponent className="w-4 h-4 lg:w-5 lg:h-5" />}
                           </div>
                           <span className="flex-1 text-left relative">
                             {item.name}
@@ -290,12 +290,12 @@ export function Navigation() {
                 </div>
 
                 {/* Footer */}
-                <div className="p-6 border-t border-[rgb(var(--border))]">
+                <div className="p-4 lg:p-6 border-t border-[rgb(var(--border))]">
                   <div className="text-center">
                     <p className="text-sm text-muted">
                       Let&apos;s build something amazing together
                     </p>
-                    <div className="mt-4">
+                    <div className="mt-3 lg:mt-4">
                       <a
                         href="#contact"
                         className="btn-primary w-full"

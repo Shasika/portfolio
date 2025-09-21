@@ -55,7 +55,7 @@ export function HeroSection() {
       </div>
 
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Main Content */}
           <motion.div
             variants={containerVariants}
@@ -114,7 +114,7 @@ export function HeroSection() {
             {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-center lg:items-start lg:justify-start justify-center gap-3 sm:gap-4 pt-2"
             >
               <motion.button
                 onClick={handleScrollToProjects}

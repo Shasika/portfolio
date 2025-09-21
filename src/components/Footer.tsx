@@ -10,8 +10,8 @@ export function Footer() {
   const { data: navigation } = useNavigation();
 
   return (
-    <footer className="py-12 px-6 border-t border-[rgb(var(--border))]">
-      <div className="max-w-6xl mx-auto">
+    <footer className="mt-8 lg:mt-12 py-12 border-t border-[rgb(var(--border))]">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
