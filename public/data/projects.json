@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Online Store",
+    "description": "Complete e-commerce platform with comprehensive admin panel, dynamic banner management, and customer-focused shopping experience.",
+    "image": "/project-estore.jpg",
+    "liveUrl": "https://estore.shasikam.com/",
+    "adminUrl": "https://estore.shasikam.com/admin",
+    "credentials": {
+      "username": "admin",
+      "password": "123456789"
+    },
+    "tech": ["CodeIgniter", "JavaScript", "jQuery", "MySQL"],
+    "features": ["Product Management", "Order Processing", "Admin Dashboard", "Banner System"]
+  },
+  {
+    "title": "Online POS",
+    "description": "Multi-cashier point-of-sale system with integrated receipt printing, comprehensive stock management, and shift tracking capabilities.",
+    "image": "/project-pos.jpg",
+    "liveUrl": "https://pos.shasikam.com/",
+    "adminUrl": "http://pos.shasikam.com/dashboard",
+    "credentials": {
+      "username": "admin",
+      "password": "123456789"
+    },
+    "tech": ["CodeIgniter", "JavaScript", "jQuery", "MySQL"],
+    "features": ["Multi-cashier Support", "Receipt Printing", "Stock Management", "Shift Tracking"]
+  },
+  {
+    "title": "OpusXenta SaaS Modules",
+    "description": "Comprehensive death-care industry SaaS solution including floral programs, digital record keeping, and care service management.",
+    "image": "/project-opusxenta.jpg",
+    "tech": ["Laravel", "Vue.js", "MySQL", "Email Automation"],
+    "features": ["Floral Program (Email Campaigns)", "RecordKeepr (Digital Records + Mapping)", "Care Programs (Value-add Services)"],
+    "isInternal": true
+  }
+]
