@@ -2,49 +2,19 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Mail, Phone, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { useRef } from 'react';
+import { Mail, Phone, Linkedin, Send } from 'lucide-react';
 import { usePersonal } from '@/hooks/useJsonData';
 
 export function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
   const { data: personal } = usePersonal();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        const errorData = await response.json();
-        setStatus('error');
-        setErrorMessage(errorData.message || 'Failed to send message');
-      }
-    } catch {
-      setStatus('error');
-      setErrorMessage('Network error. Please try again.');
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+  const handleEmailClick = () => {
+    const subject = encodeURIComponent('Portfolio Contact');
+    const body = encodeURIComponent('Hi Shasika,\n\nI would like to get in touch with you.\n\nBest regards,');
+    window.open(`mailto:${personal?.email}?subject=${subject}&body=${body}`, '_blank');
   };
 
   const containerVariants = {
@@ -149,11 +119,17 @@ export function ContactSection() {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Contact Form with Formspree */}
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-xl lg:text-2xl font-semibold">Send a Message</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form
+                action="https://formspree.io/f/xeorjklz"
+                method="POST"
+                className="card space-y-6"
+              >
+                <input type="hidden" name="_subject" value="New contact from portfolio" />
+                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.origin + '?success=true' : ''} />
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -163,8 +139,6 @@ export function ContactSection() {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--surface))] focus:ring-2 focus:ring-[rgb(var(--primary))] focus:border-transparent outline-none transition-all duration-200"
                       placeholder="John Doe"
@@ -179,8 +153,6 @@ export function ContactSection() {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--surface))] focus:ring-2 focus:ring-[rgb(var(--primary))] focus:border-transparent outline-none transition-all duration-200"
                       placeholder="john@example.com"
@@ -194,8 +166,6 @@ export function ContactSection() {
                     <textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
                       required
                       rows={6}
                       className="w-full px-4 py-3 rounded-lg border border-[rgb(var(--border))] bg-[rgb(var(--surface))] focus:ring-2 focus:ring-[rgb(var(--primary))] focus:border-transparent outline-none transition-all duration-200 resize-vertical"
@@ -204,47 +174,52 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                {/* Status Messages */}
-                {status === 'success' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center space-x-2 text-green-600 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg"
-                  >
-                    <CheckCircle className="w-5 h-5" />
-                    <span>Message sent successfully! I&apos;ll get back to you soon.</span>
-                  </motion.div>
-                )}
-
-                {status === 'error' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center space-x-2 text-red-600 bg-red-50 dark:bg-red-900/20 p-4 rounded-lg"
-                  >
-                    <AlertCircle className="w-5 h-5" />
-                    <span>{errorMessage}</span>
-                  </motion.div>
-                )}
-
                 <button
                   type="submit"
-                  disabled={status === 'loading'}
-                  className="btn-primary w-full flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary w-full flex items-center justify-center space-x-2"
                 >
-                  {status === 'loading' ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Send Message</span>
-                    </>
-                  )}
+                  <Mail className="w-5 h-5" />
+                  <span>Send Message</span>
                 </button>
               </form>
+
+              {/* Alternative Contact Methods */}
+              <div className="text-center space-y-4">
+                <p className="text-sm text-[rgb(var(--fg))]/60">Or reach out directly:</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <motion.button
+                    onClick={handleEmailClick}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="btn-secondary flex items-center justify-center space-x-2"
+                  >
+                    <Mail className="w-4 h-4" />
+                    <span>Email</span>
+                  </motion.button>
+
+                  <motion.a
+                    href={`tel:${personal?.phone}`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="btn-secondary flex items-center justify-center space-x-2"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>Call</span>
+                  </motion.a>
+
+                  <motion.a
+                    href={personal?.linkedin || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="btn-secondary flex items-center justify-center space-x-2"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    <span>LinkedIn</span>
+                  </motion.a>
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
