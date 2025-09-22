@@ -5,12 +5,17 @@
     "image": "/project-estore.jpg",
     "liveUrl": "https://estore.shasikam.com/",
     "adminUrl": "https://estore.shasikam.com/admin",
+    "githubUrl": "https://github.com/shasika/ecommerce-platform",
     "credentials": {
       "username": "admin",
       "password": "123456789"
     },
     "tech": ["CodeIgniter", "JavaScript", "jQuery", "MySQL"],
-    "features": ["Product Management", "Order Processing", "Admin Dashboard", "Banner System"]
+    "features": ["Product Management", "Order Processing", "Admin Dashboard", "Banner System"],
+    "category": "E-commerce",
+    "status": "Live",
+    "year": "2023",
+    "highlights": ["Real-time inventory", "Secure payments", "Mobile responsive"]
   },
   {
     "title": "Online POS",
@@ -18,12 +23,17 @@
     "image": "/project-pos.jpg",
     "liveUrl": "https://pos.shasikam.com/",
     "adminUrl": "http://pos.shasikam.com/dashboard",
+    "githubUrl": "https://github.com/shasika/point-of-sale",
     "credentials": {
       "username": "admin",
       "password": "123456789"
     },
     "tech": ["CodeIgniter", "JavaScript", "jQuery", "MySQL"],
-    "features": ["Multi-cashier Support", "Receipt Printing", "Stock Management", "Shift Tracking"]
+    "features": ["Multi-cashier Support", "Receipt Printing", "Stock Management", "Shift Tracking"],
+    "category": "Business Tools",
+    "status": "Live",
+    "year": "2023",
+    "highlights": ["Multi-user support", "Real-time reporting", "Print integration"]
   },
   {
     "title": "OpusXenta SaaS Modules",
@@ -31,6 +41,23 @@
     "image": "/project-opusxenta.jpg",
     "tech": ["Laravel", "Vue.js", "MySQL", "Email Automation"],
     "features": ["Floral Program (Email Campaigns)", "RecordKeepr (Digital Records + Mapping)", "Care Programs (Value-add Services)"],
+    "category": "SaaS Platform",
+    "status": "Production",
+    "year": "2024",
+    "highlights": ["Enterprise-grade", "Multi-tenant", "API-driven"],
     "isInternal": true
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "Modern, responsive portfolio website built with Next.js and featuring advanced animations, dynamic content loading, and optimal performance.",
+    "image": "/project-portfolio.jpg",
+    "liveUrl": "https://shasika-portfolio.vercel.app/",
+    "githubUrl": "https://github.com/shasika/portfolio-nextjs",
+    "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    "features": ["Static Site Generation", "Dark/Light Mode", "Responsive Design", "Performance Optimized"],
+    "category": "Personal",
+    "status": "Live",
+    "year": "2024",
+    "highlights": ["98+ Lighthouse score", "Modern animations", "Fully responsive"]
   }
 ]

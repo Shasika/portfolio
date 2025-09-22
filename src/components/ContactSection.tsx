@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Phone, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, Linkedin } from 'lucide-react';
 import { usePersonal } from '@/hooks/useJsonData';
 
 export function ContactSection() {

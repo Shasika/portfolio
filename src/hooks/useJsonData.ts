@@ -8,12 +8,17 @@ interface Project {
   image?: string;
   liveUrl?: string;
   adminUrl?: string;
+  githubUrl?: string;
   credentials?: {
     username: string;
     password: string;
   };
   tech: string[];
   features: string[];
+  category: string;
+  status: string;
+  year: string;
+  highlights?: string[];
   isInternal?: boolean;
 }
 
