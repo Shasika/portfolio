@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Phone, Linkedin, Sparkles, Code, Terminal, Github, Globe } from 'lucide-react';
+import { ArrowRight, Download, Mail, Phone, Linkedin, Code, Terminal, Github } from 'lucide-react';
 import Image from 'next/image';
 import { usePersonal, useHomeStats } from '@/hooks/useJsonData';
 
@@ -188,7 +188,7 @@ export function HeroSection() {
                   external: true
                 },
                 {
-                  href: personal?.github || '#',
+                  href: '#',
                   icon: Github,
                   label: 'GitHub',
                   color: 'from-gray-700 to-gray-900',
@@ -331,7 +331,7 @@ export function HeroSection() {
                             transition={{ delay: 1.5 + (index * 0.2) }}
                             className="pl-4 text-green-400"
                           >
-                            "{skill}"{index < 2 ? ',' : ''}
+                            &quot;{skill}&quot;{index < 2 ? ',' : ''}
                           </motion.div>
                         ))}
                         <div className="text-yellow-500">];</div>

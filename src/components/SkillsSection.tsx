@@ -73,7 +73,7 @@ export function SkillsSection() {
 
           {/* Skills Grid */}
           <div className="space-y-8 lg:space-y-12">
-            {skillCategories.map((category, categoryIndex) => (
+            {skillCategories.map((category) => (
               <motion.div
                 key={category.title}
                 variants={itemVariants}
