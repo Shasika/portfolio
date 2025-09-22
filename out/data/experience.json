@@ -1,0 +1,50 @@
+[
+  {
+    "company": "Intervest Software Technologies",
+    "role": "Senior Software Engineer",
+    "period": "2025 – Present",
+    "highlights": [
+      "Leading development of enterprise-grade software solutions",
+      "Architecting scalable systems for high-traffic applications",
+      "Mentoring junior developers and establishing best practices",
+      "Driving technical decisions and code quality standards"
+    ],
+    "tech": ["Laravel", "Vue.js", "MySQL", "AWS"]
+  },
+  {
+    "company": "OpusXenta Lanka (Pvt) Ltd",
+    "role": "Senior Software Engineer",
+    "period": "2022 – 2025",
+    "highlights": [
+      "Developed comprehensive SaaS modules for death-care industry",
+      "Built Floral Program with automated email campaign system",
+      "Created RecordKeepr for digital records management and mapping",
+      "Designed Care Programs for value-added service management"
+    ],
+    "tech": ["Laravel", "Vue.js", "MySQL", "Email Automation"]
+  },
+  {
+    "company": "eMarketingEye (Pvt) Ltd",
+    "role": "Software Engineer",
+    "period": "2021 – 2022",
+    "highlights": [
+      "Developed full-stack web applications for diverse client needs",
+      "Implemented responsive designs and optimized user experiences",
+      "Collaborated with cross-functional teams on project delivery",
+      "Maintained and enhanced existing application features"
+    ],
+    "tech": ["PHP", "JavaScript", "MySQL", "CSS"]
+  },
+  {
+    "company": "OpusXenta Lanka",
+    "role": "Software Engineer (Intern)",
+    "period": "2020 – 2021",
+    "highlights": [
+      "Gained hands-on experience in professional software development",
+      "Contributed to codebase improvements and bug fixes",
+      "Learned industry best practices and development workflows",
+      "Supported senior developers in feature implementation"
+    ],
+    "tech": ["PHP", "Laravel", "Vue.js", "Git"]
+  }
+]
